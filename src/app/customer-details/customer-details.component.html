@@ -1,0 +1,159 @@
+<div class="row overflow-x-hidden">
+  <!-- <div class="col-md-12"> -->
+  <div class="container-fluid bg-secondary-subtle p-4">
+    <div class="row">
+      <div style="width: 35%">
+        <div class="circular-image">
+          <img src="../../assets/user1.jpg" alt="Circular Image" />
+        </div>
+      </div>
+      <div class="mx-4" style="width: 54%">
+        <div>
+          <span style="font-weight: 900; font-size: 24px"
+            >{{ userDetails?.firstName }} {{ userDetails?.lastName }}</span
+          >
+        </div>
+        <div>
+          <span>Project Manager</span>
+        </div>
+        <div class="row mt-1">
+          <div class="col-auto align-items-center">
+            <i class="fa fa-envelope-open" aria-hidden="true"></i>
+            <a
+              class="mx-2"
+              style="word-break: break-all !important; font-size: medium"
+              [href]="'mailto:' + userDetails?.emailAddress"
+            >
+              {{ userDetails?.emailAddress }}
+            </a>
+          </div>
+          <div class="col-auto align-items-center phoneCol">
+            <img src="../../assets/phone-call.png" />
+            <a
+              style="font-size: medium"
+              class="mx-2"
+              [href]="'tel:' + userDetails?.phoneNumber"
+              >{{ userDetails?.phoneNumber }}</a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto align-items-center">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <span style="font-size: medium" class="mx-2"
+              >123 Anywhere St., Any City, ST 12345</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-left mt-4" *ngIf="!summary">
+      <div class="col-md-6 mx-2">
+        <h5 class="text-muted">Activity</h5>
+      </div>
+      <!-- <hr class="custom-hr" /> -->
+    </div>
+    <!-- <div class="summary text-left mt-4" *ngIf="summary">
+        <div class="mx-2">
+          <span>{{ userDetails?.botSummary }}</span>
+        </div>
+      </div> -->
+    <div
+      class="bg-white mt-4 me-3"
+      style="border: 1px solid #b2b2ad"
+      *ngIf="summary"
+    >
+      <!-- <div> -->
+      <span
+        (click)="summary = false"
+        style="cursor: pointer"
+        class="float-end small mx-2"
+        >Close <i class="fa fa-close"></i>
+      </span>
+      <!-- </div> -->
+      <div class="mx-2 p-3 mt-4">
+        <div
+          class="transcript"
+          *ngFor="let communication of userDetails?.callTranscript"
+        >
+          <p>
+            <span class="font-weight-bold"
+              >{{ userDetails?.firstName }} :
+            </span>
+            {{ communication?.botSay }}
+          </p>
+          <p>
+            <span class="font-weight-bold">Bot : </span>
+            {{ communication?.customerSay }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container bootstrap snippets bootdeys mx-5 mt-4"
+      *ngIf="!summary"
+    >
+      <div class="col-md-9 me-4">
+        <div class="timeline-centered timeline-sm">
+          <article class="timeline-entry">
+            <div class="timeline-entry-inner">
+              <div class="timeline-icon bg-violet phoneCol">
+                <img
+                  src="../../assets/chatting-white.png"
+                  style="width: 20px; height: 20px"
+                />
+                <!-- <i
+                class="fa fa-phone"
+                style="font-size: 25px"
+                aria-hidden="true"
+              ></i>    -->
+              </div>
+              <div class="timeline-label">
+                <button class="btn btn-primary"
+                style="margin-top: -20px; width: 150px; height: 50px;">
+                  Ongoing Chat
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-entry me-1">
+            <div class="timeline-entry-inner">
+              <div class="timeline-icon bg-violet">
+                <span style="font-size: 14px">AI</span>
+              </div>
+              <div class="timeline-label">
+                <p>
+                  Alex had conversation with AI bot and bot was able to collect
+                  her intents..
+                </p>
+                <p
+                  class="text-primary"
+                  style="cursor: pointer; margin-top: 5px !important"
+                  (click)="summary = true"
+                >
+                  <u>Show Transcript</u>
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-entry">
+            <div class="timeline-entry-inner">
+              <div class="timeline-icon bg-violet">
+                <i
+                  class="fa fa-laptop"
+                  style="font-size: 14px"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div class="timeline-label">
+                <p>Alex checked the loan offers from BeyondBank website.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://us-central1-nipon-test-350808.cloudfunctions.net",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api": "" }
+  }
+}
