@@ -4,7 +4,12 @@
 
 
 html,body,h1,h2,h3,h4,h5,h6 {
-  font-family: 'Public Sans';
+  font-family: 'Public Sans', sans-serif;
+  color: #444440;
+}
+
+.bodyBgColor{
+  background-color: #f4f4f4;
 }
 
   /* Styles for screens between 400px and 500px */
